@@ -1,0 +1,262 @@
+HTTP / REST / Controller Layer
+
+handle — process a request/event. handleCreateOrder
+route — direct to handler. routeByVersion
+dispatch — send to internal handler. dispatchToAggregate
+bind — map request to DTO/domain. bindRequestToCommand
+parse — read structured input. parseJsonBody
+render — produce a response. renderOrderView
+respond — return HTTP result. respondOk, respondCreated
+redirect — send to another URL. redirectToLogin
+forward — internal handoff. forwardToController
+negotiate — content negotiation. negotiateContentType
+paginate — page results. paginateOrders
+filter — narrow results. filterByStatus
+sort — order results. sortByCreatedAt
+validate — check request DTO. validateOrderRequest
+authorize — enforce permissions. authorizeAdminOnly
+authenticate — verify identity. authenticateUser
+rateLimit — restrict requests. rateLimitByIp
+stream — chunked output. streamInvoicePdf
+upload — accept file. uploadAttachment
+download — send file. downloadReport
+cache — cache response. cacheCatalog
+invalidate — evict response cache. invalidateProductCache
+
+
+DDD / Domain Modeling
+
+model — define domain logic. modelDiscountPolicy
+validate — enforce invariants. validateCartInvariant
+enforce — hard precondition. enforceCreditLimit
+assert — internal invariant check. assertNonNegative
+compute — domain calculation. computeTotalPrice
+calculate — arithmetic rule. calculateTax
+derive — secondary value. deriveShipmentDate
+apply — apply a rule/event. applyDiscount, applyEvent
+fulfill — complete requirement. fulfillOrder
+settle — finalize transaction. settleInvoice
+reconcile — match records. reconcilePayments
+allocate — assign resources. allocateStock
+reserve — hold resources. reserveInventory
+release — free resources. releaseReservation
+authorize — domain permission. authorizeRefund
+approve — mark accepted. approveReturn
+reject — mark refused. rejectClaim
+schedule — plan time-based action. scheduleDelivery
+reschedule — adjust timing. reschedulePickup
+rescind — revoke domain decision. rescindOffer
+expire — time out. expirePromotion
+renew — extend validity. renewSubscription
+cancel — terminate. cancelOrder
+complete — mark done. completeShipment
+escalate — elevate severity. escalateDispute
+delegate — hand off responsibility. delegateApproval
+consolidate — aggregate state. consolidateLedger
+provision — prepare resources. provisionAccount
+finalize — end-of-process. finalizeStatement
+
+
+Event Handling & Event Sourcing (incl. CQRS)
+
+publish — emit event. publishOrderCreated
+emit — produce event (ES). emitPaymentReceived
+append — add to event store. appendToEventStream
+persistEvent — store event. persistEvent
+loadEvents — read stream. loadEventsByAggregateId
+replay — rebuild state. replayEventStream
+project — update read model. projectToView
+snapshot — capture state. snapshotAggregate
+restore — rebuild from snapshot. restoreFromSnapshot
+subscribe — listen to topic. subscribeToOrderEvents
+consume — handle incoming. consumePaymentEvent
+acknowledge — confirm processed. acknowledgeEvent
+nack — negative ack. nackEvent
+retry — reprocess failure. retryProjection
+deadLetter — route unprocessable. sendToDeadLetter
+dispatchCommand — send write-side command. dispatchCommand
+handleCommand — process command. handleCancelOrder
+handleEvent — react to event. handleStockReserved
+transformEvent — adapt event payload. transformLegacyEvent
+versionEvent — manage event versions. versionOrderEvent
+migrateEvents — evolve event schema. migrateEventStream
+compactStream — reduce event noise. compactAggregateStream
+rebuildProjection — regenerate read model. rebuildOrderView
+backfill — fill missing projections. backfillInventoryView
+
+
+Persistence / Hibernate / JPA
+
+persist — save new entity. persistOrder
+merge — sync detached state. mergeCustomer
+detach — remove from context. detachInvoice
+flush — write pending changes. flushUnitOfWork
+clear — clear context. clearEntityManager
+remove — delete entity. removeLineItem
+save — store (Spring Data). saveProduct
+update — modify. updateAddress
+delete — delete record. deleteOrderById
+upsert — insert or update. upsertCatalogEntry
+find — by ID. findOrderById
+findAll — load all. findAllOrders
+exists — check presence. existsByEmail
+getReference — lazy proxy. getReference(Customer::class, id)
+lock — obtain DB lock. lockOrderForUpdate
+unlock — release lock. unlockOrder
+paginate — page query. paginateByStatus
+query — run criteria/JPQL. queryOrdersByDateRange
+specify — build specification. specifyCustomerSearch
+index — optimize lookup. indexProductSku
+archive — move to cold storage. archiveOldInvoices
+softDelete — mark deleted. softDeleteUser
+hydrate — load full graph. hydrateOrderGraph
+dehydrate — detach/minify. dehydrateAggregate
+
+
+Transactions / Unit of Work
+
+begin — start transaction. beginTx
+commit — finalize. commitTx
+rollback — revert. rollbackTx
+inTransaction — wrap work. inTransaction { /*...*/ }
+requireNew — new transaction boundary. requireNewTx
+join — join existing. joinTransaction
+
+
+Caching (App-level & DB)
+
+cache — store computed result. cacheProductList
+evict — remove item. evictOrderCache
+invalidate — mark stale. invalidateCustomerCache
+refresh — reload cache. refreshPriceCache
+warm — pre-populate. warmPopularItemsCache
+memoize — cache by input. memoizeCalculation
+
+
+Security / Auth (Spring Security)
+
+authenticate — verify credentials. authenticateWithJwt
+authorize — enforce access rules. authorizeOrderView
+challenge — start auth flow. challengeWith401
+hash — digest (password). hashPassword
+salt — add randomness. saltPassword
+encrypt — protect data. encryptPayload
+decrypt — restore. decryptPayload
+sign — create signature. signWebhook
+verifySignature — confirm signature. verifyWebhookSignature
+generateToken — issue token. generateAccessToken
+validateToken — check claims. validateRefreshToken
+revokeToken — invalidate. revokeSession
+
+
+Observability / Monitoring
+
+log — record events. logOrderCreated
+trace — track across services. traceRequest
+debug — diagnostic info. debugAuthFlow
+audit — compliance record. auditPriceChange
+monitor — health/metrics. monitorQueueLag
+instrument — add metrics. instrumentHandler
+profile — measure performance. profileProjection
+sample — limit telemetry. sampleAccessLogs
+
+
+Resilience / Fault Tolerance
+
+try — wrap operation. tryChargeCard
+catch — handle exception. catchValidationError
+throw — raise domain error. throwOutOfStock
+recover — alternative result. recoverFromTimeout
+fallback — backup path. fallbackToCache
+retry — reattempt. retryProjectionUpdate
+timeout — limit duration. timeoutPaymentAuth
+circuitBreak — stop failing calls. circuitBreakCatalog
+bulkhead — isolate resources. bulkheadInventory
+shedLoad — reject under pressure. shedLoadOnSpike
+
+
+Messaging (Kafka/RabbitMQ)
+
+produce — write message. produceOrderEvent
+consume — read message. consumePaymentCommand
+publish — emit event. publishCustomerCreated
+subscribe — listen. subscribeToBillingEvents
+ack — acknowledge. ackMessage
+nack — negative ack. nackMessage
+partition — route by key. partitionByCustomerId
+offset — track position. commitOffset
+seek — reposition. seekToBeginning
+serialize — to bytes. serializeEvent
+deserialize — from bytes. deserializeEvent
+
+
+DTO / Mapping / Anti-Corruption Layer
+
+map — DTO ↔ domain. mapDtoToCommand
+convert — type conversion. convertMoneyCurrency
+translate — adapt between bounded contexts. translateInventoryEvent
+adapt — adjust legacy format. adaptExternalOrder
+canonicalize — normalize representation. canonicalizeSku
+normalize — standardize casing/format. normalizeEmail
+sanitize — remove unsafe input. sanitizeHtml
+redact — remove sensitive parts. redactPII
+mask — partially hide fields. maskCardPan
+
+
+Testing / TDD
+
+arrange — set up preconditions. arrangeValidOrder
+act — execute behavior. actSubmitOrder
+assert — verify outcome. assertOrderCreated
+stub — canned response. stubPaymentGateway
+mock — behavior verification. mockInventoryService
+spy — partial mock. spyOnEventPublisher
+capture — record arguments. capturePublishedEvents
+parameterize — run with inputs. parameterizeOrderTotals
+fixture — reusable setup. fixtureCustomerWithDebt
+expect — desired result. expectUnauthorized
+verify — interaction check. verifyEmailSent
+
+
+Clean Code / Refactoring
+
+extract — pull out method/class. extractValidationRule
+inline — move content in place. inlineHelper
+rename — better name. renameFieldToSku
+reorder — change sequence. reorderHandlers
+split — divide responsibilities. splitAggregate
+merge — combine duplication. mergeSimilarPolicies
+prune — remove dead code. pruneLegacyPaths
+deprecate — mark for removal. deprecateV1Api
+replace — substitute technique. replaceIfWithStrategy
+simplify — reduce complexity. simplifyProjection
+generalize — broaden applicability. generalizeValidator
+specialize — narrow focus. specializeCommand
+encapsulate — hide internals. encapsulateState
+
+
+Concurrency / Kotlin Coroutines
+
+launch — start coroutine. launchProjectionUpdater
+async — concurrent task. asyncPriceFetch
+await — suspend for result. awaitChargeResult
+cancel — stop coroutine. cancelSyncJob
+withContext — switch dispatcher. withContext(Dispatchers.IO)
+delay — suspend for time. delayRetry
+yield — let others run. yieldOnBackpressure
+collect — consume flow. collectOrderEvents
+emit — produce flow value. emitProjectionUpdate
+buffer — add capacity. bufferEventFlow
+debounce — suppress noisy bursts. debounceSearchInput
+throttle — rate limit. throttleProjectionWrites
+
+
+Time / IDs / Utilities
+
+now — current time provider. nowUtc
+clock — clock abstraction. clock()
+generateId — create unique IDs. generateOrderId
+parseDate — read date. parseIsoDate
+formatDate — write date. formatIsoDate
+compareDates — compare. compareByDate
+measure — performance timing. measureProjectionLatency

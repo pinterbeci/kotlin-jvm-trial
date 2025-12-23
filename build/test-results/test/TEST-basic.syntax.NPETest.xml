@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="basic.syntax.NPETest" tests="4" skipped="0" failures="0" errors="0" timestamp="2025-12-19T10:25:45" hostname="DEBLT015L" time="0.026">
+  <properties/>
+  <testcase name="should call elvis operator on nullable variable()" classname="basic.syntax.NPETest" time="0.018"/>
+  <testcase name="should thrown a NPE if 'this' assigned in init block()" classname="basic.syntax.NPETest" time="0.005"/>
+  <testcase name="should thrown a NPE if I use the not-null assertion operator()" classname="basic.syntax.NPETest" time="0.001"/>
+  <testcase name="should call method on nullable variable with safe call operator()" classname="basic.syntax.NPETest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
