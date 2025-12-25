@@ -1,8 +1,11 @@
 ### IntelliJ IDEA ###
 .gradle
 .idea
+.kotlin
 build
+gradle
 libs
+out
 
 ### Eclipse ###
 .apt_generated
