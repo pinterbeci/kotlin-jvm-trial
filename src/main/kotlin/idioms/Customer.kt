@@ -16,6 +16,7 @@ fun foo(name: String = "") {
 
 
 //higher-order function and lambdas are treated like objects
+//each function is an object !!!!!
 //this means they can up the memory, which slow down the program
 //so the inline helps to solve this memory issue, and tells the compiler, don't create separate
 //memory space for this, instead copy the code directly where the function called
@@ -30,5 +31,11 @@ fun callReadline() {
     print("Read decimal = $decimal")
 }
 
+//IDE shows this message: Expected performance impact from inlining is insignificant. Inlining works best for functions with parameters of functional types
+//I want to tell the compiler, I don't want to inline my lambda parameter, but this move is going against the inline
+//I remain here this, anti-inline solution
+inline fun executeNonInlinedLambda(noinline action: () -> Unit) {
+    action()
+}
 
 

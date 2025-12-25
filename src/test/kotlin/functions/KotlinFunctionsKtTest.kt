@@ -80,4 +80,18 @@ class KotlinFunctionsKtTest {
             optionalDecimals = intArrayOf(1, 2, 4)
         )
     }
+
+    @Test
+    fun `should refer to a method with a double colon`() {
+        val actual = refersTo(4, Int::inc)
+        assertThat(actual).isEqualTo(5)
+    }
+
+    @Test
+    fun `should execute anonymous extension function`() {
+        //name that I invoke in an Int with the corresponding parameters
+        val isInRange: Int.(min: Int, max: Int) -> Boolean = { min, max -> this in min..max }
+        assertThat(5.isInRange(1, 10)).isTrue()
+        assertThat(20.isInRange(1, 10)).isFalse()
+    }
 }

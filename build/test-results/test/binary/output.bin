@@ -1,0 +1,26 @@
+
+	new Person instance created
+
+	new Person instance created
+
+	new Person instance created
+
+	new Person instance created
+Vcatch block: Encountered ArithmeticException java.lang.ArithmeticException: / by zero
+4finally block: The finally block is always executed
+1
+hello bello mr/mrs
+,calling greeting{}, with default userId = 0
+0
+hello bello mr/mrs
+:calling greeting{}, with named variable + trailing lambda
+2
+hello bello mr/mrs1no argument passed on 'message', please be aware
+execute read
+1no argument passed on 'message', please be aware
+execute read
+%all arguments are filledexecute read
+execute the operation chain#"false
+#"truetrue/.4Start cleaning the bedroomFinished cleaning bedroom
+/.6Start cleaning the bathroomFinished cleaning bathroom
+/.4Start cleaning the kitchenFinished cleaning kitchen

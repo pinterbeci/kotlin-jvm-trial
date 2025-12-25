@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="type.checks.TypeChecksTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2025-12-24T11:11:17" hostname="DEBLT015L" time="0.005">
+  <properties/>
+  <testcase name="should clean the rooms()" classname="type.checks.TypeChecksTest" time="0.003"/>
+  <testcase name="should check types()" classname="type.checks.TypeChecksTest" time="0.0"/>
+  <system-out><![CDATA[Start cleaning the bedroomFinished cleaning bedroom
+Start cleaning the bathroomFinished cleaning bathroom
+Start cleaning the kitchenFinished cleaning kitchen
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

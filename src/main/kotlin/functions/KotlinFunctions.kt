@@ -52,3 +52,5 @@ fun Int.with(
     val sum = this + x
     return if (optionalDecimals.isNotEmpty()) optionalDecimals.sum() + sum else sum
 }
+
+fun <T : Number> refersTo(number: T, function: T.() -> Int): Int = number.function()

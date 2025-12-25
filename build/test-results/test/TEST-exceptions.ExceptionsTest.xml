@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="exceptions.ExceptionsTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-12-24T11:11:17" hostname="DEBLT015L" time="0.036">
+  <properties/>
+  <testcase name="should check that all list items fit the condition()" classname="exceptions.ExceptionsTest" time="0.03"/>
+  <testcase name="should not throw an exception if divided by zero()" classname="exceptions.ExceptionsTest" time="0.002"/>
+  <testcase name="should require items in the list()" classname="exceptions.ExceptionsTest" time="0.002"/>
+  <system-out><![CDATA[catch block: Encountered ArithmeticException java.lang.ArithmeticException: / by zero
+finally block: The finally block is always executed
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

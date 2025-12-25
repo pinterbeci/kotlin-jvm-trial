@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="first.steps.OuterTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2025-12-19T10:25:45" hostname="DEBLT015L" time="0.003">
+<testsuite name="first.steps.OuterTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2025-12-24T11:11:17" hostname="DEBLT015L" time="0.008">
   <properties/>
-  <testcase name="should initiate inner class and tell the secret()" classname="first.steps.OuterTest" time="0.001"/>
-  <testcase name="should obtain the nested instance as a static instance, cause it knows the truth()" classname="first.steps.OuterTest" time="0.001"/>
+  <testcase name="should initiate inner class and tell the secret()" classname="first.steps.OuterTest" time="0.002"/>
+  <testcase name="should obtain the nested instance as a static instance, cause it knows the truth()" classname="first.steps.OuterTest" time="0.005"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
