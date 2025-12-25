@@ -1,8 +1,8 @@
 ### IntelliJ IDEA ###
-out/
-!**/src/main/
-!**/src/test/
-
+.gradle
+.idea
+build
+libs
 
 ### Eclipse ###
 .apt_generated
