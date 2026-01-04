@@ -6,7 +6,7 @@ import org.junit.jupiter.api.assertDoesNotThrow
 
 private val pair: Pair<Any?, Any?> = "str" to listOf(1, 3, 8)
 
-class GenericsInKTest {
+class GenericsTest {
     @Test
     fun `should wrap different values`() {
 
