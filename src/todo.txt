@@ -1,0 +1,5 @@
+I missed these topics:
+- https://typealias.com/start/kotlin-coroutines
+   Multithreaded Concurrency
+
+- https://kotlinlang.org/docs/inline-classes.html

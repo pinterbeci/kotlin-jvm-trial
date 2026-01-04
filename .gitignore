@@ -3,8 +3,6 @@
 .idea
 .kotlin
 build
-gradle
-libs
 out
 
 ### Eclipse ###
