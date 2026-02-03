@@ -52,7 +52,62 @@ class GenericsTest {
 
     @Test
     fun `should fails on asPairOf if the cast cannot be possible`() {
-       val actual = pair.asPairOf<String, List<String>>()
+        assertDoesNotThrow {
+            pair.asPairOf<String, List<String>>()
+        }
+    }
+
+    @Test
+    fun `should represent declaration-side variance`() {
+        assertDoesNotThrow {
+            val wrappedDerived = Wrapper<Derived>()
+            val wrappedBase: Wrapper<Base> = wrappedDerived
+        }
+    }
+
+    @Test
+    fun `should represent covariance`() {
+        assertDoesNotThrow {
+            //covariance means: I can only read about this; I cannot add new item
+            val strings: MutableList<out String> = mutableListOf("red", "black", "blue")
+            //I cannot do this, because it is not enabled.
+            //strings.add("ssssss");
+            assertThat(strings).isNotEmpty
+            assertThat(strings.size).isEqualTo(3)
+            assertThat(strings[0]).isEqualTo("red")
+            assertThat(strings[1]).isEqualTo("black")
+            assertThat(strings[2]).isEqualTo("blue")
+        }
+    }
+
+    @Test
+    fun `should represent contravariance`() {
+        assertDoesNotThrow {
+            //covariance means: I can only read about this; I cannot add new item
+            val strings: MutableList<in String> = mutableListOf("red", "black", "blue")
+            //I cannot do this, because it is not enabled.
+            strings.add("ssssss")
+
+            assertThat(strings).isNotEmpty
+            assertThat(strings.size).isEqualTo(4)
+            assertThat(strings[0]).isEqualTo("red")
+            assertThat(strings[1]).isEqualTo("black")
+            assertThat(strings[2]).isEqualTo("blue")
+            assertThat(strings[3]).isEqualTo("ssssss")
+        }
+    }
+
+    @Test
+    fun `should try kotlin star-projections`() {
+        assertDoesNotThrow {
+            tryStarProjection(wrapper = Wrapper<Int>())
+
+            tryStarProjection(wrapper = Wrapper<String>())
+        }
+    }
+
+    private fun tryStarProjection(wrapper: Wrapper<*>) {
+        println("called with = $wrapper")
     }
 
     private inline fun <reified A, reified B> Pair<*, *>.asPairOf(): Pair<A, B>? {
